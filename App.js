@@ -8,13 +8,13 @@ import { enableScreens } from 'react-native-screens';
 
 import ProductsOverviewScreen from './screens/ProductsOverviewScreen';
 import CustomersOverviewScreen from './screens/CustomersOverviewScreen';
+import ProductDetailScree from './screens/ProductDetailScreen';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 enableScreens();
-
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -41,3 +41,9 @@ export default function App() {
   );
 }
 
+{/* <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Notifications" component={Notifications} />
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Settings" component={Settings} />
+</Stack.Navigator> */}
