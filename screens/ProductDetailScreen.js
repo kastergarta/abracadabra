@@ -8,7 +8,13 @@ import {
   StyleSheet
 } from 'react-native';
 
-const ProductDetailScreen = props => { };
+const ProductDetailScreen = props => { 
+    return (
+        <View>
+          <Text>{selectedProduct.title}</Text>
+        </View>
+      );
+};
 
 const styles = StyleSheet.create({});
 
