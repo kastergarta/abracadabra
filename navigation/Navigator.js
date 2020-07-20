@@ -15,24 +15,21 @@ const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const HomeStack = () => {
-
-//console.log(route.params.name);
-
     return (
         <Stack.Navigator>
             <Stack.Screen name="AllProducts" component={ProductsOverviewScreen} />
-            <Stack.Screen name="Details" component={ProductDetailScreen} options={({ route }) => ({
-                title: route.params.name
-            })}/>
+            <Stack.Screen name="Details" component={ProductDetailScreen} options={{
+                headerTitle: 'Sign Up'
+            }}/>
         </Stack.Navigator>
     );
 };
 
-const Navigation = () => {
+const Navigation = ( ) => {
     return (
         <NavigationContainer>
             <Drawer.Navigator initialRouteName="ProductsScreen">
-                <Drawer.Screen name="ProductsScreen" component={HomeStack} options={{ title: 'Products' }} />
+                <Drawer.Screen name="ProductsScreen" component={HomeStack} />
                 <Drawer.Screen name="CustomersScreen" component={CustomersOverviewScreen} options={{ title: 'Customers' }} />
             </Drawer.Navigator>
         </NavigationContainer>
