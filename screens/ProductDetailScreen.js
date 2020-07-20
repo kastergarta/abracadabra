@@ -7,11 +7,19 @@ import {
   Button,
   StyleSheet
 } from 'react-native';
+import { useSelector } from 'react-redux';
 
-const ProductDetailScreen = props => { 
+const ProductDetailScreen = ({ route, navigation }) => { 
+
+  const { productId } = route.params;
+
+  const selectedProduct = useSelector(state =>
+    state.products.availableProducts.find(prod => prod.id === productId)
+  );
+
     return (
         <View>
-          <Text>PRODUCT DETAIL</Text>
+          <Text>{selectedProduct.title}</Text>
         </View>
       );
 };

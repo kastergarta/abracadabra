@@ -15,10 +15,15 @@ const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const HomeStack = () => {
+
+//console.log(route.params.name);
+
     return (
         <Stack.Navigator>
             <Stack.Screen name="AllProducts" component={ProductsOverviewScreen} />
-            <Stack.Screen name="Details" component={ProductDetailScreen} />
+            <Stack.Screen name="Details" component={ProductDetailScreen} options={({ route }) => ({
+                title: route.params.name
+            })}/>
         </Stack.Navigator>
     );
 };
