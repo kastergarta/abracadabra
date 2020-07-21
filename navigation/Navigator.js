@@ -10,6 +10,7 @@ import ProductsOverviewScreen from '../screens/ProductsOverviewScreen';
 import CartScreen from '../screens/CartScreen';
 import ProductDetailScreen from '../screens/ProductDetailScreen';
 import OrdersScreen from '../screens/OrdersScreen';
+import UserProductsScreen from '../screens/UserProductsScreen';
 
 import HeaderButton from '../components/UI/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -83,6 +84,15 @@ const Navigation = ( ) => {
                       ),
                 }}/>
                 <Stack.Screen name="OrdersScreen" component={OrdersScreen} options={{ title: 'Orders' }} options={{
+                    drawerIcon: drawerConfig => (
+                        <Ionicons
+                          name={Platform.OS === 'android' ? 'md-body' : 'ios-body'}
+                          size={23}
+                          color={drawerConfig.tintColor}
+                        />
+                      ),
+                }}/>
+                <Stack.Screen name="UserProductsScreen" component={UserProductsScreen} options={{ title: 'User Products' }} options={{
                     drawerIcon: drawerConfig => (
                         <Ionicons
                           name={Platform.OS === 'android' ? 'md-body' : 'ios-body'}
