@@ -20,20 +20,20 @@ enableScreens();
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const HomeStack = () => {
+const HomeStack = ({ navigation }) => {
     return (
         <Stack.Navigator>
             <Stack.Screen name="AllProducts" component={ProductsOverviewScreen} options={{
                     headerRight: () => (
                         <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Cart"
-          iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
-          onPress={() => {
-              navData.navigation.navigate('Cart')
-          }}
-        />
-      </HeaderButtons>
+                            <Item
+                                title="Cart"
+                                iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
+                                onPress={() => {
+                                    navigation.navigate('CartScreen')
+                                }}
+                            />
+                        </HeaderButtons>
                       ),
                   }}
                 />
@@ -41,6 +41,7 @@ const HomeStack = () => {
                 headerTitle: 'UUUUUU'
             }}
             />
+            <Stack.Screen name="CartScreen" component={CartScreen} options={{ title: 'Cart' }} />
         </Stack.Navigator>
     );
 };
@@ -50,7 +51,7 @@ const Navigation = ( ) => {
         <NavigationContainer>
             <Drawer.Navigator initialRouteName="ProductsScreen">
                 <Drawer.Screen name="ProductsScreen" component={HomeStack} />
-                <Drawer.Screen name="CartScreen" component={CartScreen} options={{ title: 'Cart' }} />
+                <Drawer.Screen name="CartScreen" component={CartScreen} />
             </Drawer.Navigator>
         </NavigationContainer>
     );
