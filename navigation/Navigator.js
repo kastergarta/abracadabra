@@ -11,6 +11,8 @@ import CartScreen from '../screens/CartScreen';
 import ProductDetailScreen from '../screens/ProductDetailScreen';
 import OrdersScreen from '../screens/OrdersScreen';
 import UserProductsScreen from '../screens/UserProductsScreen';
+import EditProductScreen from '../screens/EditProductScreen';
+
 
 import HeaderButton from '../components/UI/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -57,6 +59,8 @@ const HomeStack = ({ navigation }) => {
             />
             <Stack.Screen name="CartScreen" component={CartScreen} options={{ title: 'Cart' }} />
             <Stack.Screen name="OrdersScreen" component={OrdersScreen} options={{ title: 'Orders' }} />
+            <Stack.Screen name="UserProductsScreen" component={UserProductsScreen} options={{ title: 'User Products' }} />
+            <Stack.Screen name="EditProductScreen" component={EditProductScreen} options={{ title: 'Edit Product' }} />
         </Stack.Navigator>
     );
 };
@@ -93,6 +97,15 @@ const Navigation = ( ) => {
                       ),
                 }}/>
                 <Stack.Screen name="UserProductsScreen" component={UserProductsScreen} options={{ title: 'User Products' }} options={{
+                    drawerIcon: drawerConfig => (
+                        <Ionicons
+                          name={Platform.OS === 'android' ? 'md-body' : 'ios-body'}
+                          size={23}
+                          color={drawerConfig.tintColor}
+                        />
+                      ),
+                }}/>
+                <Stack.Screen name="EditProductScreen" component={EditProductScreen} options={{ title: 'Edit Product' }} options={{
                     drawerIcon: drawerConfig => (
                         <Ionicons
                           name={Platform.OS === 'android' ? 'md-body' : 'ios-body'}
