@@ -16,7 +16,8 @@ import * as cartActions from '../store/actions/cart';
 const ProductDetailScreen = ({ route, navigation }) => { 
 
   const { productId } = route.params;
-
+  
+  //const productId = 'p1';
   const selectedProduct = useSelector(state =>
     state.products.availableProducts.find(prod => prod.id === productId)
   );

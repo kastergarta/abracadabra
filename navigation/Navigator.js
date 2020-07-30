@@ -53,7 +53,7 @@ const HomeStack = ({ navigation }) => {
                       ),
                   }}
                 />
-            <Stack.Screen name="Details" component={ProductDetailScreen} options={{
+            <Stack.Screen name="ProductDetailScreen" component={ProductDetailScreen} options={{
                 headerTitle: 'UUUUUU'
             }}
             />
