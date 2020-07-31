@@ -59,7 +59,19 @@ const HomeStack = ({ navigation }) => {
             />
             <Stack.Screen name="CartScreen" component={CartScreen} options={{ title: 'Cart' }} />
             <Stack.Screen name="OrdersScreen" component={OrdersScreen} options={{ title: 'Orders' }} />
-            <Stack.Screen name="UserProductsScreen" component={UserProductsScreen} options={{ title: 'User Products' }} />
+            <Stack.Screen name="UserProductsScreen" component={UserProductsScreen} options={{ 
+                headerRight: () => (
+                    <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                        <Item
+                            title="Add"
+                            iconName={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
+                            onPress={() => {
+                                navigation.navigate('EditProductScreen')
+                            }}
+                        />
+                    </HeaderButtons>
+                  )
+             }} />
             <Stack.Screen name="EditProductScreen" component={EditProductScreen} options={{ title: 'Edit Product' }} />
         </Stack.Navigator>
     );
@@ -87,7 +99,7 @@ const Navigation = ( ) => {
                         />
                       ),
                 }}/>
-                <Stack.Screen name="OrdersScreen" component={OrdersScreen} options={{ title: 'Orders' }} options={{
+                <Drawer.Screen name="OrdersScreen" component={OrdersScreen} options={{ title: 'Orders' }} options={{
                     drawerIcon: drawerConfig => (
                         <Ionicons
                           name={Platform.OS === 'android' ? 'md-body' : 'ios-body'}
@@ -96,7 +108,7 @@ const Navigation = ( ) => {
                         />
                       ),
                 }}/>
-                <Stack.Screen name="UserProductsScreen" component={UserProductsScreen} options={{ title: 'User Products' }} options={{
+                <Drawer.Screen name="UserProductsScreen" component={UserProductsScreen} options={{ title: 'User Products' }} options={{
                     drawerIcon: drawerConfig => (
                         <Ionicons
                           name={Platform.OS === 'android' ? 'md-body' : 'ios-body'}
@@ -105,7 +117,7 @@ const Navigation = ( ) => {
                         />
                       ),
                 }}/>
-                <Stack.Screen name="EditProductScreen" component={EditProductScreen} options={{ title: 'Edit Product' }} options={{
+                <Drawer.Screen name="EditProductScreen" component={EditProductScreen} options={{ title: 'Edit Product' }} options={{
                     drawerIcon: drawerConfig => (
                         <Ionicons
                           name={Platform.OS === 'android' ? 'md-body' : 'ios-body'}
