@@ -19,18 +19,18 @@ export const signup = (email, password) => {
     );
 
     if (!response.ok) {
-        const errorResData = await response.json();
-        const errorId = errorResData.error.message;
-        let message = 'Something went wrong!';
-        if (errorId === 'EMAIL_EXISTS') {
-          message = 'This email exists already!';
-        }
-        throw new Error(message);
+      const errorResData = await response.json();
+      const errorId = errorResData.error.message;
+      let message = 'Something went wrong!';
+      if (errorId === 'EMAIL_EXISTS') {
+        message = 'This email exists already!';
       }
+      throw new Error(message);
+    }
 
     const resData = await response.json();
     console.log(resData);
-    dispatch({ type: SIGNUP });
+    dispatch({ type: SIGNUP, token: resData.idToken, userId: resData.localId });
   };
 };
 
@@ -65,6 +65,6 @@ export const login = (email, password) => {
 
     const resData = await response.json();
     console.log(resData);
-    dispatch({ type: LOGIN });
+    dispatch({ type: LOGIN, token: resData.idToken, userId: resData.localId });
   };
 };
