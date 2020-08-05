@@ -17,6 +17,8 @@ import EditProductScreen from '../screens/EditProductScreen';
 import HeaderButton from '../components/UI/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { Platform } from 'react-native';
+import * as authActions from '../store/actions/auth';
+
 
 
 import { enableScreens } from 'react-native-screens';
